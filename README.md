@@ -16,3 +16,4 @@ Dump data from kafka to hadoop
 - [] make job name changable, by -D?
 - [] move filter function to Shuffle.java
 - [] make it easier to use
+- [] give reduce offset details, besides string

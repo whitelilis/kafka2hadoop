@@ -4,3 +4,9 @@
 *.jar
 *.war
 *.ear
+
+# third party jars content
+./cn/*
+./com/*
+./kafka/*
+./scala/*

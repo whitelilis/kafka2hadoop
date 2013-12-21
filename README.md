@@ -20,7 +20,7 @@ See *run_hourly.sh* for details, we only run it hourly through conttab, nothing 
 ## Build From Source
 If you want to build it from source, follow the steps below:
 - for it is a java project, you need jdk first
-- unjar scala-libary.jar kafka_2.8.0-0.8.0-bete1.jar metrics-core.jar here, all of these is need to run kafka2hadoop map/reduce job
+- unjar scala-libary.jar kafka_2.8.0-0.8.0-bete1.jar metrics-core.jar here(these 3 jars can be found from kafka project), all of these are needed to run kafka2hadoop map/reduce job
 - ensure hadoop related jars is in CLASSPATH
 - just run 'make', then you will get shuffle.jar
 - put shuffle.jar in your CLASSPATH, then you can use InputGenerator, and shuffle.jar is the usable hadoopjar

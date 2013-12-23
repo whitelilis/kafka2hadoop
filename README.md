@@ -20,6 +20,7 @@ See *run_hourly.sh* for details, we only run it hourly through conttab, nothing 
 ## Build From Source
 If you want to build it from source, follow the steps below:
 - for it is a java project, you need jdk first
+- for it use hadoop hdfs, it need HADOOP_HOME set
 - unjar scala-libary.jar kafka_2.8.0-0.8.0-bete1.jar metrics-core.jar here(these 3 jars can be found from kafka project), all of these are needed to run kafka2hadoop map/reduce job
 - ensure hadoop related jars is in CLASSPATH
 - just run 'make', then you will get shuffle.jar
@@ -29,15 +30,15 @@ If you want to build it from source, follow the steps below:
 ## TODO
 - [X] read broker from input
 - [X] set reduce number from inputGenrator file, or make inputGenerator and mapreduce job single step(through bash script)
-- [] remove third party jar content out, read from hdfs is the best solution
-- [] use direct partitioner
 - [X] when broker down, do nothing, don't change hdfs
 - [X] reduce read broker and port from map output
-- [] remore core-site.xml hdfs-site.xml absolute path from InputGenerator.java
-- [] move kafka related function to new Class KafkaHelper.java
-- [] make job name changable, by -D?
+- [X] remore core-site.xml hdfs-site.xml absolute path from InputGenerator.java
 - [X] move filter function to Shuffle.java
 - [X] make it easier to use(run_hourly.sh)
 - [] give reduce offset details, besides message only
 - [] remove magic numbers
 - [] when different broker has different port, InputGenerator won't work
+- [] remove third party jar content out, read from hdfs is the best solution
+- [] use direct partitioner
+- [] move kafka related function to new Class KafkaHelper.java
+- [] make job name changable, by -D?

@@ -32,16 +32,18 @@ public class OffsetSplitMapper extends MapReduceBase implements Mapper<LongWrita
     public void map(LongWritable key, Text value, OutputCollector<Text, Text> output, Reporter reporter) throws IOException {
         String line         = value.toString();
         String[] parts      = line.split("\\s+");
-        String topic        = parts[0];
-        String partition_id = parts[1];
+        String topic        = parts[0].trim();
+        String partition_id = parts[1].trim();
         long numbers        = Long.parseLong(parts[2].trim(), 10);
         long begin          = Long.parseLong(parts[3].trim(), 10);
         long end            = Long.parseLong(parts[4].trim(), 10);
+        String broker       = parts[5].trim();
+        String port         = parts[6].trim();
 
         List<Long> stones = longSplit(begin, end, numbers);
 
         for(int i = 0; i < stones.size() - 1; ++i){
-            output.collect(new Text("" + i), new Text(topic + " " + partition_id + " " + stones.get(i) + " " + stones.get(i+1)));
+            output.collect(new Text("" + i), new Text(topic + " " + partition_id + " " + stones.get(i) + " " + stones.get(i+1) + " " + broker + " " + port));
         }
     }
 }
